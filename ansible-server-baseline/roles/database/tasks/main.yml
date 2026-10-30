@@ -5,8 +5,22 @@
   ansible.builtin.dnf:
     name: mariadb-server
     state: present
+
 - name:  Start and enable mariadb Server
   ansible.builtin.service:
     name: mariadb
     state: started
     enabled: true    
+
+- name: Install PyMySql for Ansible Mysql Module
+  ansible.builtin.dnf:
+    name: python3-PyMySQL
+    state: present
+
+- name: Create myCorp Ddatabase User
+  community.mysql.mysql_user:
+    name: mycorp_admin
+    password: "{{ vault_db_password }}"
+    priv: "*.*:ALL"
+    state: present
+    login_unix_socket: /var/lib/mysql/mysql.sock 
