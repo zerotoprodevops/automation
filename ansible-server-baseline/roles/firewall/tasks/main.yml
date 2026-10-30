@@ -4,8 +4,8 @@
 ---
 - name: install Firewalld
   ansible.builtin.dnf:
-    - name: firewalld
-      state: present
+     name: firewalld
+     state: present
 
 - name: Ensure Firewalld is running
   ansible.builtin.service:

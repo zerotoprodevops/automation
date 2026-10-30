@@ -1,12 +1,31 @@
 ---
-# Play1: 
+# Play1: Baseline for all RHEL Servers
+#
 - name: Apply Baseline to all RHEL Servers
   hosts: rhel10
-  remote_user: devops
   become: true
   become_user: root
 
   roles:
     - common
 
+# Play 2: Web Server Setup
+- name: Configure Web Server
+  hosts: master
+  become: true
+  become_user: root
+  
+  roles:
+    - firewall
+    - webserver
 
+# Play 3: Database Setup
+
+- name: Configure Database Server
+  hosts:  client
+  become: true
+  become_user: root
+
+  roles:
+    - firewall
+    - database
