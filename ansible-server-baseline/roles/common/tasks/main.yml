@@ -1,7 +1,7 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/common
- - name: Installing {{ package_name }} packages
+ - name: Installing Baseline Packages
    ansible.builtin.dnf:
     name: "{{ package_name }}"
     state: "latest"

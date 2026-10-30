@@ -3,3 +3,7 @@ package_name:
   - vsftpd
   - vim
   - git
+
+open_ports:
+  - 80
+  - 443  

@@ -1,3 +1,29 @@
 #SPDX-License-Identifier: MIT-0
----
+
 # tasks file for roles/firewall
+---
+- name: install Firewalld
+  ansible.builtin.dnf:
+    - name: firewalld
+      state: present
+
+- name: Ensure Firewalld is running
+  ansible.builtin.service:
+    name: firewalld 
+    enabled: true
+    state: started
+
+- name: Allow Specific ports in firewall
+  ansible.posix.firewalld:
+    port: "{{ item }}/tcp"
+    immediate: true
+    permanent: true
+    state: enabled
+  loop: "{{ open_ports }}"
+  
+    
+ 
+
+
+
+

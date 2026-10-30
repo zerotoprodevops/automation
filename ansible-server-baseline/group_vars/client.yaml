@@ -1,3 +1,7 @@
 package_name: 
   - git
   - vsftpd
+  - vim
+
+open_ports:
+  - 3306
