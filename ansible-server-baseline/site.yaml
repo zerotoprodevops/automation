@@ -1,0 +1,12 @@
+---
+- name: plays to install package in RHEL
+  hosts: rhel10
+  remote_user: devops
+  become: true
+  become_user: root
+
+  vars_files:
+    - ./group_vars/master.yaml
+ 
+  roles:
+    - common

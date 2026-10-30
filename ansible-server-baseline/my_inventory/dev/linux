@@ -1,0 +1,13 @@
+[master]
+master.mjs.com
+
+[client]
+client01.mjs.com
+#cisrv
+
+[ubuntu]
+cisrv
+
+[rhel10:children]
+master
+client
