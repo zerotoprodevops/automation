@@ -39,7 +39,7 @@ jobs:
 
       - name:  Run syntax Check
         run: |
-          # Create a dummy vault password file
+          # Create a dummy vault password 
           echo "dummy_pass" >  vault_pass.txt
           ansible-playbook site.yaml -i my_inventory/dev  --syntax-check --vault-password-file vault_pass.txt
        
