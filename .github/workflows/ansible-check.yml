@@ -4,8 +4,11 @@ name: Ansible Validation
 on: 
   push:
     branches: [ "main" ]
+    paths:
+      - 'ansible-server-baseline/**'
   pull_request:
     branches: [ "main" ]
+  
 
 ## Step 2: Define Job and what OS it will run on
 
